@@ -16,13 +16,12 @@ export const Auth = ({type} : {type: "signup" | "signin"}) => {
 
      async function sendRequest() {
 try {
-   const response =  await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs
-   )        
+   const response =  await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs)        
     const jwt = response.data
     localStorage.setItem("token",jwt)
     navigate("/blogs")
 } catch (error) {
-      
+      alert("Error while signin up") 
 }    
 }
 
@@ -68,9 +67,9 @@ try {
 } 
 
 interface LabelledInputType {
-    label: string
-    placeholder :string
-    onChange : (e: ChangeEvent<HTMLInputElement>) => void
+    label: string;
+    placeholder :string;
+    onChange : (e: ChangeEvent<HTMLInputElement>) => void;
     type?:string
 }
 
