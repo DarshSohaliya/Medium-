@@ -28,8 +28,8 @@ export const useBlog = ({ id }: { id:string }) =>  {
             
             setBlog(response.data.post)
             setLoading(false)
-         
          })
+        
          
     },[id])
 
